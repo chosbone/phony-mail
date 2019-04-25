@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phishing Tutorial</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+    <script>
+			// Wait until the DOM has loaded before querying the document
+			$(document).ready(function(){
+				// Show the first tab and hide the rest
+                $('#tabs-nav li:first-child').addClass('active');
+                $('.tab-content').hide();
+                $('.tab-content:first').show();
+
+//                //Test Click Function
+//                $('#tabs-nav #test_button').click(function(){
+//                  window.location.href='tutorial.html';
+//                  return false;
+//                });
+                
+                // Click function
+                $('#tabs-nav li').click(function(){
+                  $('#tabs-nav li').removeClass('active');
+                  $(this).addClass('active');
+                  $('.tab-content').hide();
+
+                  var activeTab = $(this).find('a').attr('href');
+                  $(activeTab).fadeIn();
+                  return false;
+                });
+			});
+</script>
+    <body>
+        <h1 id="title_tut">
+            How to Identify a Phishing Email
+        </h1>
+        <div class="tabs">
+          <ul id="tabs-nav">
+            <li><a href="#tab1">Human Psychology</a></li>
+            <li><a href="#tab2">Grammar</a></li>
+            <li><a href="#tab3">Inconsistencies</a></li>
+            <li><a href="#tab4">Context Clues</a></li>
+            <li id="test_button"><a href="#tab5">Test Me!</a></li>
+          </ul> <!-- END tabs-nav -->
+            
+          <div id="tabs-content">
+            <div id="tab1" class="tab-content">
+              <h3>Human Psychology</h3>
+              <p>Phishing attacks have proven time and again to be successful methods of exploiting shared human psychological tendencies. In Dr. Cialdini’s book, Influence: The Psychology of Persuasion, he notes on six common psychological perspectives utilized by scammers to deceive people through relatively basic cognitive exploitation. One can get a much deeper overview of both the phishers motivations and techniques by analyzing the Principles of Influence (POI): reciprocation, scarcity, social proof, authority, liking, and consistency (Cialdini VII).</p>
+                <br>
+              <h4>Reciprocation</h4>
+                <p>Phishing emails will promise a large reward of sorts in exchange for something fairly small in comparison. This was popularized in the first popularized phishing scam, the Nigerian Prince scam, where the prince promised to send the victim a huge sum of money in return for either a relatively small fee or bank information.
+                By choosing urgent word choice to promote an idea that everything needs to be done immediately, the scammer overwhelms the victim with greed (millions of promised dollars) and causes the victim to think unclearly because they are in a perceived rush.
+                </p><p id = "remember"><b>Remember:</b> If the reward seems too good to be true, it probably is.
+                </p>
+              <h4>Scarcity</h4>
+                <p>This POI is utilized to promote a sense of urgency in the victim, if they don't act fast, then they will miss out on this once in a lifetime deal! While also being used in the Nigerian Prince scam, another example of this are emails where the victim won some sort of contest (that they did not even enter).
+                </p><p id = "remember"><b>Remember:</b> Scammers want you to think quickly and loosely about the possible reward instead of deliberating over the problems with the email.
+                </p>
+              <h4>Social Proof</h4>
+                <p>Social Proof is related to how society influences a person's standards and decisions. This POI is used to exploit the willingness of people to help. After every major crises, phishers will send mass emails masquerading as a reputable charitable organizaton to trick victims into helping the scammer rather than the unforunate victims of the crisis.
+                </p><p id = "remember"><b>Remember:</b> You should always be 100% certain of the validity of the sender of the email. If you are not sure, play it safe. You can send donations directly through the company website- just don't click any links from within the email but rather find it yourself.
+                </p>
+              <h4>Authority</h4>
+                <p>Scammers will exploit a persons willingness to more quickly belive an authority figure to prompt them to click a malicious link or send personal information. A popular guise is using the name of a government agency (such as the IRS) to scare the victim into believing they have a potentially serious issue that could land them a major fine or even time in jail. 
+                </p><p id = "remember"><b>Remember:</b> You need to investigate how valid the email and sender are. If you are worried, you can always contact the agency directly by googling their information. <u>NEVER</u> use the information present in the email, it is <u>ALWAYS</u> better to find the information yourself.
+                </p>
+              <h4>Liking</h4>
+                <p>Liking affects how willing others are to immediately like the scammer. If someone seems overly friendly and likable, others will be more probable to trust them. 
+                </p><p id = "remember"><b>Remember:</b> Always be sceptical of who the sender says they are. Personal emails are constantly hacked, so even if you know the sender, ask yourself further questions about the email.
+                </p>
+              <h4>Consistency</h4>
+                <p>Consistency is seen across all phishing types. A phishing attack only needs to work once on an individual, so sending billions of emails every day to users across the globe with fraudulent links or malicious purposes is guaranteed to deceive, at the very least, a small percentage of users.
+                </p><p id = "remember"><b>Remember:</b> If you're careful, you can avoid being part of the percentage of victims.  
+                </p>
+            </div>
+              
+            <div id="tab2" class="tab-content">
+              <h3>Grammar/Spelling</h3>
+              <p>Phishing emails consistently have poor grammar and obvious spelling mistakes. This is most likely due to the scammer not being a native English speaker. Instead, they commonly draft the email in their native language and use a translation service to change it to English.
+              Additionally, phishers may use incorrect grammar and spelling in order to directly target more gullible victims. By casting a huge net and sending billions of emails, they can increase their chances of finding a naive user.
+              </p><p id = "remember"><b>Remember:</b> spelling and grammar mistakes are a clear factor in determining phishing emails. By combining this analyzation method with other methods discussed in this tutorial, you can deduce how valid the email content is. 
+              </p>
+              <h4>Example Translation</h4>
+              <img src="https://s3-us-west-1.amazonaws.com/umbrella-blog-uploads/wp-content/uploads/2016/02/jpyorre_blogpost_20160204_russian.png" alt="Example Translation">
+              <p>As you can see, translating services are not perfect. Scammers hope that you will just view the overall content of the email and reply or click a link as quickly as possible.</p>
+            </div>
+              
+            <div id="tab3" class="tab-content">
+              <h3>Inconsistencies</h3>
+              <p>Phishing emails have several core inconsistencies that you should be on the lookout for. Scammers try to impersonate credible sources, such as well-known companies. Additionally, they hope that you will ignore or jump past the problems present. Although you should question every aspect of the email you can, there are several preliminary areas to focus on.</p>
+              <h4>Sender Email</h4>
+              <p>
+                The email from the sender should look reputable. If it is from a company, usually the address includes the company name rather than a typical email client. (customersupport@verizon.net vs. verizoncustomersupport@gmail.com) Does the email look legitimate?
+                </p><p id = "example"><b>Example:</b> customersupport@verizon.net vs. ver1zoncustomersupport@gmail.com</p>
+              <h4>Sender Name</h4>
+                <p>
+                 The name of the sender of the organization they represent should be recognizable. If you google the name and the company, does anything show up? Does this match their email address?
+              <h4>Company</h4>
+                <p> Do you have an account with the company? Are you expecting this kind of email?
+                </p><p id = "remember"><b>Remember:</b> Never use information that is provided in the email. It is better to look up the website on Google and access acount information in that manner. 
+                </p>
+              <h4>Embedded Links</h4> 
+                <p> You can hover over links attached in the email to see where they will actually redirect you to. Does the hovered link match the link embedded in the email? Additionally, links may contain intentional spelling errors to disguise an illegitimate site.</p><p id = "example"><b>Example:</b> Hover on this link: <a href="https://www.bing.com">https://www.google.com</a> Does the URL match the link text? What about this one: <a href="https://www.yah00.com">https://www.yahoo.com</a></p>
+              <h4>Attachments</h4> <p>
+                Files attached to emails are incredibly dangerous. They can infect your computer with malicious software that can steal personal information, or completely incapacitate your system. Make sure that you are expecting an email with an attachment from a completely trusted source.
+                </p><p id = "remember"><b>Remember:</b> Never click on links within the email unless you are 100% positive the email is legitimate. Never download attachments unless you have verified the sender and expect the attachment.
+              </p>
+              <h4>Other Emails</h4> <p>
+                Sometimes, phishing emails contain requests to send information to other emails in the document, such as account numbers, personal information, and addresses. This email is typically different from the sender's email, so they can properly receive data from the victim.
+                </p><p id = "remember"><b>Remember:</b> Never reply with any personal information to an email unless you have completely verified the validity. Why would a person ask you to send a reply to another address rather than just clicking reply? 
+              </p>
+            </div>
+              
+            <div id="tab4" class="tab-content">
+              <h3>Context Clues</h3>
+              <p>Phishing emails fortunately share many common problems that you can use as clues to determine the authenticity of the email.</p>
+              <h4>Greeting</h4>
+                <p>A typical trope of scam emails is the lack of a personalized greeting, or an overly formal greeting. If the sender does not know your name, why are they sending you this email? Typically, companies that you have accounts for have your name in a database, so they can send a personalized greeting.</p><p id = "example"><b>Example:</b> Dear Sir or Madam, To Whom it may Concern, Dear Mr/Mrs</p>
+              <h4>Lack of Professionalism</h4>
+                <p>If you are recieving an email from a reputable person or company, you would expect the content of their email to match your relationship with them. If an email from a company has spelling/grammar errors, weirdly placed pictures, incorrect formatting, or improper greeting/closing statements, you should be on high alert.</p>
+              <h4>Sense of Urgency</h4>
+                <p>A common trick, as noted in previous sections, is the scammer instilling a heavy sense of urgency within the target. You always want to be sure you examine the email slowly, as to not miss any important information on whether the email is valid or not.</p><p id = "remember"><b>Remember:</b> Stop, take a deep breath, and think. You are not expected to immediately reply to most emails. Take as long as you need to verify the authenticity of the email and the validity of the sender. As you know, replies to emails are typically not instant; you should take time to examine all suspicious parts of the email.
+              </p>
+              <p>Impersonal/formal greeting, lack of professionalism (look and content), urgency, unsolicited email, sending personal information </p>
+            </div> 
+              
+            <div id="tab5" class="tab-content">
+              <h3>Interactive Email</h3>
+              <p>In the following mock email client, you will be able to review several phishing emails. Hover over suspicious factors to receive a tip about why you should be checking these areas. </p>
+                <a id="link_buttonG" href="phemail.html">Begin!</a>
+            </div>  
+              
+          </div> <!-- END tabs-content -->
+        </div> <!-- END tabs -->
+ 
+    </body>
+</html>

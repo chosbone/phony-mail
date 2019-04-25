@@ -1,0 +1,206 @@
+/* Fonts from Google Fonts - more at https://fonts.google.com */
+/*@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');*/
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Kanit');
+
+body {
+  background-color: #f1f1f1;
+  font-family: "Open Sans", sans-serif;
+  padding: 5px 25px;
+  font-size: 18px;
+  margin: 0;
+  color: #444;
+  text-align: center;
+}
+
+h1 {
+  font-family: "Roboto", serif;
+  font-size: 32px;
+}
+
+#title{
+  font-family: 'Kanit', sans-serif;
+  font-size: 100px;
+  margin-bottom: 10px;
+}
+#title_tut{
+  font-family: 'Kanit', sans-serif;
+  font-size: 68px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  padding: 5px;
+  border: 1.5px solid #09F;
+  border-radius: 5px;
+}
+
+h3 {
+    font-family: "Roboto", serif;
+    font-style: italic;
+    font-size: 32px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+h4 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 22px;
+  padding: 5px;
+  border: 2.5px solid mediumseagreen;
+  border-radius: 5px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+#remember{
+  border: 1.5px solid crimson;
+  border-radius: 5px;
+  padding: 2px;
+/*  display:inline;*/
+}
+#example{
+  border: 1.5px solid purple;
+  border-radius: 5px;
+  padding: 2px;
+/*  display:inline;*/
+}
+
+img{
+    display:inline;
+    align-content: center;
+    width: 75%;
+    height: 75%;
+    
+}
+
+#link_button:link, #link_button:visited {
+  background-color: #09F;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  padding: 14px 25px;
+  text-align: center; 
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+#link_button:hover{
+   background-color: #08E;  
+}
+
+
+#link_buttonG:link, #link_buttonG:visited {
+  background-color: limegreen;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  padding: 14px 25px;
+  text-align: center; 
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+#link_buttonG:hover{
+    background-color: lawngreen;
+}
+
+a:hover, a:active {
+  color: red;
+}
+
+.centered {
+/*  position: fixed;*/
+  margin-left: 10%;
+  margin-right: 10%; 
+/*
+  top: 25%;
+  left: 25%;
+   bring your own prefixes 
+  transform: translate(-25%, -25%);
+*/
+}
+
+th{
+    font-style: oblique;
+    background-color: #f44336;
+    color: white;
+    text-align: center;
+}
+
+table{
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+.tut_table{
+    width: 75%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+/* TUTORIAL TAB SETTINGS */
+.tabs {
+/*  width: 600px;*/
+  margin: 5em auto;
+  margin-top: 0px;
+  background-color: #09F;
+  border-radius: 5px 5px 5px 5px;
+}
+ul#tabs-nav {
+  list-style: none;
+  margin: 0;
+  padding: 5px;
+  padding-bottom: 0px;
+  border-bottom: 5px solid #08E;
+  overflow: auto;
+}
+
+#test_button{
+  float: right !important;
+  font-weight: bold;
+  margin-right: 5px;
+  padding: 8px 15px;
+  border-radius: 5px 5px 2px 2px;
+  border: 1.5px solid #FFF;
+  border-bottom: none;
+  cursor: pointer;
+  background-color: limegreen;
+}
+
+ul#tabs-nav li {
+  float: left;
+  font-weight: bold;
+  margin-right: 5px;
+  padding: 8px 15px;
+  border-radius: 5px 5px 2px 2px;
+  border: 1.5px solid #FFF;
+  border-bottom: none;
+  cursor: pointer;
+}
+
+
+
+ul#tabs-nav li:hover,
+ul#tabs-nav li.active {
+  background-color: #08E; 
+}
+
+ul#tabs-nav #test_button:hover,
+ul#tabs-nav #test_button.active{
+    background-color: lawngreen;
+}
+
+#tabs-nav li a {
+  text-decoration: none;
+  color: #FFF;
+}
+.tab-content {
+  padding: 10px;
+  border: 5px solid #08E;
+  background-color: #FFF;
+}

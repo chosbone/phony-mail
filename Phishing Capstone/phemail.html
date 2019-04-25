@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Phemail Client</title>
+	<link rel="stylesheet" href="email_style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+    <script>
+        $(document).ready(function(){
+            //initial setup
+            var activePemail = $('#Pemail1');
+            $('#Pemail1').addClass('active_email');
+            $('.email-content').hide();
+            $('.email-content:first').show();
+            
+                
+            $('#Pemail1, #Pemail2, #Pemail3, #Pemail4').click(function(){
+                $(activePemail).removeClass('active_email');
+                $(this).addClass('active_email');
+                activePemail = $(this);
+                $('.email-content').hide();
+                
+                //remove first P 
+                var activeEmail = this.id.replace('P','#');
+                $(activeEmail).show();
+                return false;
+            });
+            
+            //score function
+            var scoreCount = 0;
+            $('.tooltip').one('mouseover',function(){
+                scoreCount += 1;
+                $('#score').text(scoreCount);
+//                $('#point').removeClass('tooltip');
+                //$('#point').addClass('invisible')
+            });
+        });
+    </script>
+    <body>
+        <!-- header table -->
+        <table id= "table_head">
+            <tr>
+<!--                <td id="logo"><img src="/logo_transparent.png" style="width:150px; height:150px;"></td>-->
+                <td>Phishing Simulator</td>
+                <td style="width: 66%;"><img src="/logo_transparent.png" style="width:150px; height:150px;"></td>
+                <td><a id="link_button" href="tutorial-tabs.html">Tutorial</a></td>
+            </tr>
+            <tr>
+                <td id ="menu_head"><h2>Menu</h2></td>
+                <td colspan="3"><h2>Recieved Emails</h2></td>
+            </tr>
+        </table>
+        
+        <!-- menu table -->
+        <table id = "menu">
+            <tr><td>INBOX</td></tr>
+            <tr><td>DRAFTS</td></tr>
+            <tr><td class="tooltip">SPAM<span class="tooltiptext">Sometimes your spam filter can miss phishing emails, so it is important to verify all emails!</span></td></tr>
+            <tr><td>TRASH</td></tr>
+            <tr><td>SCORE (25 Total):</td></tr>
+            <tr><td id='score'>0</td></tr>
+        </table>
+        
+        <!--  email sneak table  -->
+        <table id="email_peek">
+            <tbody id ="Pemail1" class = "email_border,active_email">
+                <tr>
+                    <td>Verizon</td>
+                    <td rowspan = 3 id= "timestamp">Mar 8, 2019</td>
+                </tr>
+                <tr>
+                    <td>SUBJECT: Verizon Bill Impending Fine</td>
+                </tr>
+                <tr>
+                    <td>Hello valued customer,></td>
+                </tr>
+            </tbody>
+            <tbody id ="Pemail2" class = "email_border">
+                <tr>
+                    <td>International Revenue Service</td>
+                    <td rowspan = 3 id= "timestamp">Mar 8, 2019</td>
+                </tr>
+                <tr>
+                    <td>SUBJECT: Alert: Missing Tax Return</td>
+                </tr>
+                <tr>
+                    <td>Dear [redacted], you have incorrectly</td>
+                </tr>
+            </tbody>
+            <tbody id ="Pemail3" class = "email_border">
+                <tr>
+                    <td>Carnival Cruise Line®</td>
+                    <td rowspan = 3 id= "timestamp">Mar 8, 2019<br>10:30am</td>
+                </tr>
+                <tr>
+                    <td>SUBJECT: Congratulations!!!!</td>
+                </tr>
+                <tr>
+                    <td>CONGRATS WINNER</td>
+                </tr>
+            </tbody>
+            <tbody id ="Pemail4" class = "email_border">
+                <tr>
+                    <td>DR.GEORGE LEE MOORE</td>
+                    <td rowspan = 3 id= "timestamp">Mar 8, 2019</td>
+                </tr>
+                <tr>
+                    <td>SUBJECT: LAST REMINDER REGARDING YOUR</td>
+                </tr>
+                <tr>
+                    <td>ATTN:VALUED BENEFICIARY</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- email content -->
+        <div id="email-all">
+            <div id="email1" class="email-content">
+              <h3>Verizon Customer Support [customer_support@ver1zon.com]</h3>
+              <h4>SUBJECT: Verizon Bill Impending Fine</h4>
+              <p><img src="https://cdn.vox-cdn.com/thumbor/NmAHqcPGe--HTYSmTXdNgzYJv4c=/106x0:1300x796/1200x800/filters:focal(106x0:1300x796)/cdn.vox-cdn.com/uploads/chorus_image/image/47080648/Screen_Shot_2015-09-02_at_2.20.55_pm.0.0.png" style="width:20%;height:20%;"><br>
+                  <span class="tooltip">Dear valued customer,<span class="tooltiptext">An impersonal greeting is a clue that the sender does not know you!</span></span> <br>
+                
+                  We have seen that you have an outstanding bill. To avoid paying the $250USD fine, please click this <u>link</u> to take you to the online bill paying portal where you can enter your username and password to pay this fine. Also, you can reply to this email with your user information to the verizon account and we will handle this commencement for you. <br><br>
+                  
+                  Please hurry lest you recieve a fine!<br>
+                  Shawn Rees<br>
+                  Verizon Customer Support<br>
+                  704-228-3896
+                
+                </p>
+            </div>
+              
+            <div id="email2" class="email-content">
+              <h3>Internation Revenue Service [irs@mail.irs.io]</h3>
+              <h4>Alert: Missing Tax Return</h4>
+              <p><img src="https://i0.wp.com/www.logoworks.com/blog/wp-content/uploads/2014/04/irs-logo.gif" style="width:20%;height:20%;"><br>
+                 Hello [redacted], <br>
+                 
+                 You have either not completed the Federal Tax Return or have incorrectly filed this document. Please submit the <u>Federal Tax Return Adjustment</u> form immediately to avoid further prosecution. <br>
+                 This will take approximately 15 minutes, and will be processed in approximately 3-5 Business Days.<br><br>
+                
+                 Yours Truly,<br>
+                 International Revenue Service<br>
+                 United States Treasury Department<br>
+                 1111 Constitution Ave NW<br>
+                 (202) 622-5000<br>
+                
+                </p>
+                
+            </div>
+            
+            <div id="email3" class="email-content">
+              <h3>Carnival Cruise Line® [carnivalcruiseline123@gmail.com]</h3> 
+              <h4>Congratulations!!!!</h4> 
+              <p>CONGRATS WINNER, <br>
+                 You have been selected from our 2018 Raffle as the winner of TWO all-expenses paid tickets for our luxury liner, the Carvinal Ecstasy®. <br>
+                 <img src = "https://cruisefever.net/wp-content/uploads/2015/11/carnivalship.jpg" style="width:40%;height:40%;"><br>
+                 This is a once in a lifetime opportunity. To accept this offer you must send a reply to <u>carnivalacceptandrew@gmail.com</u> with your Full Name, Address, and Social Security Number, in order to verify your identity. You must respont as soon as possible to this email or else the time limit will expire and another lucky winner will enjoy the prize. <br><br>
+                  
+                
+                 Congratulations on your victory!<br>
+                 Carnival Cruise Line®<br>
+                 <img src = "https://www.cruisemapper.com/images/lines/9.jpg" style="width:20%;height:20%;"><br>
+                </p>
+            </div>
+            <div id="email4" class="email-content">
+              <h3>DR.GEORGE LEE MOORE [franklin314@can.net]</h3>
+              <h4>LAST REMINDER REGARDING YOUR TRUNK OF CASH IN THAT SAFE FACILITY</h4>
+              <p>
+                DR.GEORGE LEE MOORE<br>
+                DIRECTOR IN CHARGE<br>
+                UNITED NATIONS,ASIA/EUROPE<br><br>
+
+                ATTN:VALUED BENEFICIARY<br><br>
+
+                This is to clearly inform you that a courier diplomat i sent to deliver your 
+                cash inheritance funds over $30M (Thirty Million Dollars)loaded in a trunk,
+                successfully arrived your country few weeks ago at the ORLANDO INTERNATIONAL 
+                AIRPORT in FLORIDA and he virtually tried all he could to reach you but didnt 
+                succeed.<br><br>
+
+                Although the diplomat was never aware of the real content of the trunk 
+                for safety measures/precautions, so he was told that the content is HOSPITAL
+                EQUIPMENTS to avoid tampering/running away with the funds.<br><br>
+
+                He finally deposited the trunk in a safe warehouse in a city called JACKSONVILLE
+                there in FLORIDA and since then, the trunk has been under their custody. So right 
+                now you need to contact them with immedaite effect,make claims and inquire the 
+                cost of releasing the trunk out,so that it can be shipped to you without further 
+                delay, however you need to present to them your full delivery information.<br><br><br>
+
+                FULL NAME....<br>
+                CURRENT ADDRESS....<br>
+                DIRECT PHONE/CELL#....<br>
+                NEAREST AIRPORT TO YOUR ADDRESS....<br><br>
+
+                Without wasting much time,contact the warehosue keeper incharge by name, 
+                MR. PHILLIP COOPER via Phone#:Call/Text (772) 766 7576, Email address: 
+                philcop202@yahoo.com. Also you can reach me through this email for 
+                further clarification (frankmoore101@yahoo.com)
+                
+                </p>
+                
+            </div>
+        </div>
+
+    </body>
+    
+</html>
