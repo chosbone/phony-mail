@@ -14,7 +14,7 @@
             $('.email-content:first').show();
             
                 
-            $('#Pemail1, #Pemail2, #Pemail3, #Pemail4').click(function(){
+            $('#Pemail1, #Pemail2, #Pemail3, #Pemail4, #Pemail5, #Pemail6').click(function(){
                 $(activePemail).removeClass('active_email');
                 $(this).addClass('active_email');
                 activePemail = $(this);
@@ -26,13 +26,17 @@
                 return false;
             });
             
+            $('#winner').css('visibility','hidden');
             //score function
             var scoreCount = 0;
             $('.tooltip').one('mouseover',function(){
                 scoreCount += 1;
                 $('#score').text(scoreCount);
-//                $('#point').removeClass('tooltip');
-                //$('#point').addClass('invisible')
+                
+                if (scoreCount == 40) {
+                $('#winner').css('visibility','visible');
+            }
+                
             });
         });
     </script>
@@ -42,7 +46,7 @@
             <tr>
 <!--                <td id="logo"><img src="/logo_transparent.png" style="width:150px; height:150px;"></td>-->
                 <td>Phishing Simulator</td>
-                <td style="width: 66%;"><img src="Phishing%20Capstone/logo_transparent.png" style="width:150px; height:150px;"></td>
+                <td style="width: 66%;"><img src="/logo_transparent.png" style="width:150px; height:150px;"></td>
                 <td><a id="link_button" href="tutorial-tabs.html">Tutorial</a></td>
             </tr>
             <tr>
@@ -57,8 +61,9 @@
             <tr><td>DRAFTS</td></tr>
             <tr><td class="tooltip">SPAM<span class="tooltiptext">Sometimes your spam filter can miss phishing emails, so it is important to verify all emails!</span></td></tr>
             <tr><td>TRASH</td></tr>
-            <tr><td>SCORE (25 Total):</td></tr>
+            <tr><td>SCORE (40 Total):</td></tr>
             <tr><td id='score'>0</td></tr>
+            <tr><td id = "winner">Congratulations! You have found all of the inconsistencies! Use your new skills to not fall victim to future phishing scams!</td></tr>
         </table>
         
         <!--  email sneak table  -->
@@ -66,19 +71,19 @@
             <tbody id ="Pemail1" class = "email_border,active_email">
                 <tr>
                     <td>Verizon</td>
-                    <td rowspan = 3 id= "timestamp">Mar 8, 2019</td>
+                    <td rowspan = 3 id= "timestamp">Apr 24, 2019<br>11:45am</td>
                 </tr>
                 <tr>
                     <td>SUBJECT: Verizon Bill Impending Fine</td>
                 </tr>
                 <tr>
-                    <td>Hello valued customer,></td>
+                    <td>Dear valued customer,</td>
                 </tr>
             </tbody>
             <tbody id ="Pemail2" class = "email_border">
                 <tr>
                     <td>International Revenue Service</td>
-                    <td rowspan = 3 id= "timestamp">Mar 8, 2019</td>
+                    <td rowspan = 3 id= "timestamp">Apr 24, 2019<br>10:30am</td>
                 </tr>
                 <tr>
                     <td>SUBJECT: Alert: Missing Tax Return</td>
@@ -90,7 +95,7 @@
             <tbody id ="Pemail3" class = "email_border">
                 <tr>
                     <td>Carnival Cruise Line®</td>
-                    <td rowspan = 3 id= "timestamp">Mar 8, 2019<br>10:30am</td>
+                    <td rowspan = 3 id= "timestamp">Apr 24, 2019<br>10:08am</td>
                 </tr>
                 <tr>
                     <td>SUBJECT: Congratulations!!!!</td>
@@ -102,7 +107,7 @@
             <tbody id ="Pemail4" class = "email_border">
                 <tr>
                     <td>DR.GEORGE LEE MOORE</td>
-                    <td rowspan = 3 id= "timestamp">Mar 8, 2019</td>
+                    <td rowspan = 3 id= "timestamp">Apr 24, 2019<br>10:01am</td>
                 </tr>
                 <tr>
                     <td>SUBJECT: LAST REMINDER REGARDING YOUR</td>
@@ -111,36 +116,60 @@
                     <td>ATTN:VALUED BENEFICIARY</td>
                 </tr>
             </tbody>
+            <tbody id ="Pemail5" class = "email_border">
+                <tr>
+                    <td>Google</td>
+                    <td rowspan = 3 id= "timestamp">Apr 24, 2019<br>09:39am</td>
+                </tr>
+                <tr>
+                    <td>SUBJECT: Your account will be deactivated.</td>
+                </tr>
+                <tr>
+                    <td>Hello mr.houssam90,</td>
+                </tr>
+            </tbody>
+            <tbody id ="Pemail6" class = "email_border">
+                <tr>
+                    <td>NOTIFICATION</td>
+                    <td rowspan = 3 id= "timestamp">Apr 24, 2019<br>09:34am</td>
+                </tr>
+                <tr>
+                    <td>SUBJECT: Confirm your unsubscribe</td>
+                </tr>
+                <tr>
+                    <td>Hi There,</td>
+                </tr>
+            </tbody>
         </table>
         
         <!-- email content -->
         <div id="email-all">
             <div id="email1" class="email-content">
-              <h3>Verizon Customer Support [customer_support@ver1zon.com]</h3>
-              <h4>SUBJECT: Verizon Bill Impending Fine</h4>
+              <h3>Verizon Customer Support <span class="tooltip">[customer_support@ver1zon.com]<span class="tooltiptext">This sender hopes that you won't notice the "1" in verizon. This is a clear scam.</span></span></h3>
+              <h4>SUBJECT: <span class="tooltip">Verizon Bill Impending Fine<span class="tooltiptext">The phisher hopes that you will notice this email from the subject line and be worried about receiving a fine.</span></span></h4>
               <p><img src="https://cdn.vox-cdn.com/thumbor/NmAHqcPGe--HTYSmTXdNgzYJv4c=/106x0:1300x796/1200x800/filters:focal(106x0:1300x796)/cdn.vox-cdn.com/uploads/chorus_image/image/47080648/Screen_Shot_2015-09-02_at_2.20.55_pm.0.0.png" style="width:20%;height:20%;"><br>
                   <span class="tooltip">Dear valued customer,<span class="tooltiptext">An impersonal greeting is a clue that the sender does not know you!</span></span> <br>
                 
-                  We have seen that you have an outstanding bill. To avoid paying the $250USD fine, please click this <u>link</u> to take you to the online bill paying portal where you can enter your username and password to pay this fine. Also, you can reply to this email with your user information to the verizon account and we will handle this commencement for you. <br><br>
+                  We have seen that you have an outstanding bill. To avoid paying the<span class="tooltip"> $250USD<span class="tooltiptext">No one wants to pay a fine, but that doesn't mean you should ignore all other signs in the email. Why is the money formatted that way?</span></span> fine, please click this <span class="tooltip"><a href="iwillstealyourmoney.com">link</a><span class="tooltiptext">Where does this link to? Never click a link in an email, its always better to look the site up yourself.</span></span> to take you to the online bill paying portal where you can enter your username and password to pay this fine. Also, you can <span class="tooltip">reply to this email with your user information<span class="tooltiptext">No reputable company will ask you to reply to an email with your personal information.</span></span> to the verizon account and we will handle this commencement for you. <br><br>
                   
                   Please hurry lest you recieve a fine!<br>
                   Shawn Rees<br>
                   Verizon Customer Support<br>
-                  704-228-3896
+                  <span class="tooltip">704-228-3896<span class="tooltiptext">Phone numbers included in phishing emails are often fake, this one most likely calls the scammer who will pretend to be with Verizon Customer Support. Always look up information yourself.</span></span>
                 
                 </p>
             </div>
               
             <div id="email2" class="email-content">
-              <h3>Internation Revenue Service [irs@mail.irs.io]</h3>
-              <h4>Alert: Missing Tax Return</h4>
-              <p><img src="https://i0.wp.com/www.logoworks.com/blog/wp-content/uploads/2014/04/irs-logo.gif" style="width:20%;height:20%;"><br>
-                 Hello [redacted], <br>
+              <h3>Internation Revenue Service <span class="tooltip">[irs@mail.irs.io]<span class="tooltiptext">This does not seem like a site that the IRS would use. Why is the extension not ".gov"?</span></span></h3>
+              <h4><span class="tooltip">Alert: Missing Tax Return<span class="tooltiptext">Scammers want you to be worried about a fine and a missing document rather than you looking for inconsistencies in the email.</span></span></h4>
+              <p><span class="tooltip"><img src="https://i0.wp.com/www.logoworks.com/blog/wp-content/uploads/2014/04/irs-logo.gif" style="width:20%;height:20%;"><span class="tooltiptext">Just because a logo is in the email, does not mean that it is legitimate.</span></span><br>
+                 Hello <span class="tooltip">[redacted]<span class="tooltiptext">Why would your name be redacted? If anonymity is important, the IRS could send you an account number.</span></span>, <br>
                  
-                 You have either not completed the Federal Tax Return or have incorrectly filed this document. Please submit the <u>Federal Tax Return Adjustment</u> form immediately to avoid further prosecution. <br>
+                 You have either not completed the Federal Tax Return or have incorrectly filed this document. Please submit the <span class="tooltip"><a href="suspicioussite.jp.co">Federal Tax Correction</a><span class="tooltiptext">Where does this link to? If you are worried, you could always go to the IRS website by Googling it.</span></span> form immediately to avoid further prosecution. <br>
                  This will take approximately 15 minutes, and will be processed in approximately 3-5 Business Days.<br><br>
                 
-                 Yours Truly,<br>
+                 <span class="tooltip">Yours Truly,<span class="tooltiptext">This closing statement does not sound like one a government agency would send.</span></span><br>
                  International Revenue Service<br>
                  United States Treasury Department<br>
                  1111 Constitution Ave NW<br>
@@ -151,12 +180,12 @@
             </div>
             
             <div id="email3" class="email-content">
-              <h3>Carnival Cruise Line® [carnivalcruiseline123@gmail.com]</h3> 
+              <h3>Carnival Cruise Line® <span class="tooltip">[carnivalcruiseline123@gmail.com]<span class="tooltiptext">A reputable company would use their own email server, not a gmail account with random numbers. This is a quick clue in determining if the email is a scam.</span></span></h3> 
               <h4>Congratulations!!!!</h4> 
-              <p>CONGRATS WINNER, <br>
-                 You have been selected from our 2018 Raffle as the winner of TWO all-expenses paid tickets for our luxury liner, the Carvinal Ecstasy®. <br>
+              <p><span class="tooltip">CONGRATS WINNER, <span class="tooltiptext">If you won a contest, wouldn't the company have your personal information already?</span></span><br>
+                 You have been selected from our <span class="tooltip">2018 Raffle <span class="tooltiptext">Did you even enter a raffle? This is a classic scam as everyone likes being a winner.</span></span>as the winner of TWO all-expenses paid tickets for our luxury liner, the Carvinal Ecstasy®. <br>
                  <img src = "https://cruisefever.net/wp-content/uploads/2015/11/carnivalship.jpg" style="width:40%;height:40%;"><br>
-                 This is a once in a lifetime opportunity. To accept this offer you must send a reply to <u>carnivalacceptandrew@gmail.com</u> with your Full Name, Address, and Social Security Number, in order to verify your identity. You must respont as soon as possible to this email or else the time limit will expire and another lucky winner will enjoy the prize. <br><br>
+                 This is a once in a lifetime opportunity. To accept this offer you must send a reply to <span class="tooltip"><u>carnivalacceptandrew@gmail.com</u><span class="tooltiptext">This email is different than the sender's, why would this be the case? Multiple different emails in an email could point to a phishing email.</span></span> with your <span class="tooltip">Full Name, Address, and Social Security Number, in order to verify your identity.<span class="tooltiptext">Why would a company need such personal information? Never send your SSN to anyone except a trusted source!</span></span> You must <span class="tooltip">respond as soon as possible<span class="tooltiptext">The scammer wants you to reply quickly and not think about the content of the email.</span></span> to this email or else the time limit will expire and another lucky winner will enjoy the prize. <br><br>
                   
                 
                  Congratulations on your victory!<br>
@@ -165,41 +194,89 @@
                 </p>
             </div>
             <div id="email4" class="email-content">
-              <h3>DR.GEORGE LEE MOORE [franklin314@can.net]</h3>
-              <h4>LAST REMINDER REGARDING YOUR TRUNK OF CASH IN THAT SAFE FACILITY</h4>
+              <h3>DR.GEORGE LEE MOORE <span class="tooltip">[franklin314@can.net]<span class="tooltiptext">Why is "Dr. Moore's" email so different from his name?</span></span></h3>
+              <h4>LAST REMINDER REGARDING YOUR <span class="tooltip">TRUNK OF CASH IN THAT SAFE FACILITY<span class="tooltiptext">If it sounds too good to be true, it probably is.</span></span></h4>
               <p>
                 DR.GEORGE LEE MOORE<br>
-                DIRECTOR IN CHARGE<br>
+                <span class="tooltip">DIRECTOR IN CHARGE<span class="tooltiptext">In charge of what? Why would such a distinguished person be emailing you personally?</span></span><br>
                 UNITED NATIONS,ASIA/EUROPE<br><br>
 
-                ATTN:VALUED BENEFICIARY<br><br>
+                <span class="tooltip">ATTN:VALUED BENEFICIARY<span class="tooltiptext">Apparently you're not valued enough to be greeted by your name.</span></span><br><br>
 
                 This is to clearly inform you that a courier diplomat i sent to deliver your 
-                cash inheritance funds over $30M (Thirty Million Dollars)loaded in a trunk,
+                cash inheritance funds over <span class="tooltip">$30M (Thirty Million Dollars)loaded in a trunk,<span class="tooltiptext">This seems too good to be true, why would all this money be transported in such a weird way?</span></span>
                 successfully arrived your country few weeks ago at the ORLANDO INTERNATIONAL 
                 AIRPORT in FLORIDA and he virtually tried all he could to reach you but didnt 
                 succeed.<br><br>
 
                 Although the diplomat was never aware of the real content of the trunk 
-                for safety measures/precautions, so he was told that the content is HOSPITAL
-                EQUIPMENTS to avoid tampering/running away with the funds.<br><br>
+                for safety measures/precautions, so he was told that the content is <span class="tooltip"> HOSPITAL
+                EQUIPMENTS to avoid tampering/running away with the funds.<span class="tooltiptext">This diplomat doesn't seem very trustworthy, should the sender be trusted too?</span></span><br><br>
 
-                He finally deposited the trunk in a safe warehouse in a city called JACKSONVILLE
+                He finally deposited the trunk in a safe warehouse <span class="tooltip">in a city called JACKSONVILLE<span class="tooltiptext">Grammatical errors all over the email point to it being a propable phishing email.</span></span>
                 there in FLORIDA and since then, the trunk has been under their custody. So right 
                 now you need to contact them with immedaite effect,make claims and inquire the 
                 cost of releasing the trunk out,so that it can be shipped to you without further 
                 delay, however you need to present to them your full delivery information.<br><br><br>
 
-                FULL NAME....<br>
+                <span class="tooltip">FULL NAME....<span class="tooltiptext">The sender wants a lot of personal information and hopes that you are too greedy to think through the problems of this email.</span></span><br>
                 CURRENT ADDRESS....<br>
                 DIRECT PHONE/CELL#....<br>
                 NEAREST AIRPORT TO YOUR ADDRESS....<br><br>
 
                 Without wasting much time,contact the warehosue keeper incharge by name, 
-                MR. PHILLIP COOPER via Phone#:Call/Text (772) 766 7576, Email address: 
+                MR. PHILLIP COOPER via <span class="tooltip">Phone#:Call/Text (772) 769 7576, Email address: 
                 philcop202@yahoo.com. Also you can reach me through this email for 
-                further clarification (frankmoore101@yahoo.com)
+                further clarification (frankmoore101@yahoo.com)<span class="tooltiptext">All of this information is different than the sender. Who are these people? Why have they not contacted you before? When emails include additional addresses, this is a sign that they are not legitimate.</span></span>
                 
+                </p>
+                
+            </div>
+            <div id="email5" class="email-content">
+              <h3>Google <span class="tooltip">[Jessica.Gladden8wge@homoeras.net]<span class="tooltiptext">Why would a Google Employee use such a weird email address? Google is a reputable company, their emails will look much more legitimate and have a proper @google address.</span></span></h3>
+              <h4>Your account will be deactivated.</h4>
+              <p>
+                 Hello <span class="tooltip"><b>mr.houssam90</b>,<span class="tooltiptext">Is this your profile name? By looking official, some victims will skim right past this clear identifier of a phishing email!</span></span> <br><br>
+                 
+                 This is to inform you that your request on: 04/24/2019 2:17:55 p.m. to remove your account from Gmail.com server has<span class="tooltip"> been approved<span class="tooltiptext">An account deletion is important to everyone, especially one that is used so frequently. Additionally, the scammer puts a time limit on the response time so you respond as quickly as possible. This is a common trick to get victims to reply without questioning the validity of the email!</span></span> and will initiate in one hour from the exact time you open this message.<br>
+                 
+                 Regards.<br>
+
+                 <span class="tooltip">ignore this message to continue with email removal or<br>
+
+                 If this deactivation was not requested by you<br>
+
+                 Please reply us. <span class="tooltiptext">Why does an email from such a reputable company have so many spelling and grammar mistakes? Translation services are not perfect, the author of this email hopes that you will be too focused on possibly losing your account to notice all the problems.</span></span><br><br>
+
+
+                 Regards, <br>
+                 Google
+
+                
+                </p>
+                
+            </div>
+            <div id="email6" class="email-content">
+              <h3>NOTIFICATION [webinfo@tokyotimes.co.jp]</h3>
+              <h4>SUBSCRIBE****CONFIRMATION NEEDED</h4>
+              <p><center>
+                 <h2><u><span class="tooltip">CONFIRM YOUR UNSUBSCRIBE<span class="tooltiptext">No one likes being subscribed to random mailing lists, but clicking a link in an unsubscribe email can be way more dangerous. Always take care in identifying emails.</span></span></u></h2><br>
+                 
+                 <u><span class="tooltip">Hi There,<span class="tooltiptext">Again, vague and impersonal greetings are a key sign that you should check the validity of the email.</span></span></u><br>
+                 
+                 This is an email to Inform you that your <u>Email Address</u> has been Listed as a subscriber to receive Notifications from our <span class="tooltip">website.<span class="tooltiptext">No website is even mentioned so you should be on high alert.</span></span><br>
+                To make sure we are only sending these emails to our subscribers and to respect Subscriber's Terms and Conditions Agreement, we need you to<span class="tooltip"> CONFIRM <span class="tooltiptext">Emails will have a call to action to pursuade you to do something, always take a second to breathe and think about the possible outcomes.</span></span>whether you are a Subscriber or Not! <br>
+                If you are a real Subscriber, please renew your Subscription by Responding to this Email..
+                We'd like to make sure we got your right email address .<br><br>
+                <a id="link_button" href="mailto:person213@gmail.com,rebate@gotsoccer.net,adtele@returnto.io,felipesanso@yahoo.net"><span class="tooltip">Yes its me, lets get started!<span class="tooltiptext">Buttons are the same as links, do not be fooled! Hover over the button and see where it intends to redirect you. Links can be formatted to send an email to many addresses, which will increase the amount of phishing emails you will receive.</span></span></a>
+                <a id="link_button_red" href="mailto:person213@gmail.com,rebate@gotsoccer.net,adtele@returnto.io,felipesanso@yahoo.net"><span class="tooltip">Unsubscribe<span class="tooltiptext">Just because this button looks different, it can still redirect you to the same place. By including as many links as possible, phishers increase the chances of you clicking on a button.</span></span></a><br>
+                  <span id= "timestamp">
+                  <span class="tooltip">
+                  If you have any questions you can contact us at <a href="mailto:person213@gmail.com,rebate@gotsoccer.net,adtele@returnto.io,felipesanso@yahoo.net">Support</a><br>
+                  To unsubscribe from the online newsletter service please. click <a  href="mailto:person213@gmail.com,rebate@gotsoccer.net,adtele@returnto.io,felipesanso@yahoo.net">here</a>
+                  <span class="tooltiptext">Links are often disguised as legitimate, always hover and see what they intend to do.</span></span>
+                  </span>
+                </center>
                 </p>
                 
             </div>
